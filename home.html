@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+    <link rel="stylesheet" href="./css-bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div>
+    <h1 class="text-center text-white">Welcome to our site!</h1>
+    <h2 class="text-white" id="greeting"></h2>
+    <button onclick="logout()" class="btn rounded text-white text-bg-info w-25 text-center m-auto mt-4
+    ">Log out</button>
+</div>
+
+
+
+
+<script>
+    //welcome function
+  window.onload = function() {
+  const user =JSON.parse(localStorage.getItem('activeUser'));
+  if (user){
+    document.getElementById('greeting').innerText = `Hello, ${user.username} !`;
+  }else{
+    //if no name is found, redirect to login page
+    window.location.href = 'index.html'
+  }
+
+};
+</script>
+    <script src="./js-bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

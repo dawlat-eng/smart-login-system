@@ -4,7 +4,6 @@ let email = document.getElementById('signEmail');
 let password = document.getElementById('signPassword');
 const errorMessage = document.getElementById('signup-error-message');
 
-let users = [];
 
 //function to handle signup
 function signup(){
@@ -61,12 +60,22 @@ function login(){
   if (user){
     alert('Login Successful!');
     errorMessage.textContent = '';
+    localStorage.setItem('activeUser' ,  JSON.stringify(user));
+    window.location.href = 'home.html'; // Redirect to home page
 
-    //redirect to dasehboard or perform other actions
   }else{
     errorMessage.textContent = 'Invalid username or password';
   }
 }
+
+
+
+//logout function
+function logout(){
+  localStorage.removeItem('username');
+  window.location.href = 'index.html'
+}
+
 
  //validation function
  function validateAllData(elem){
